@@ -5,24 +5,17 @@ import contacts from './contacts.json';
 
 function App() {
   let [firstFive, setFirstFive] = useState(contacts.splice(0, 5));
-  let [restOfContacts, setRestOfContacts] = useState(contacts)
+  let [restOfContacts, setRestOfContacts] = useState(contacts);
   return (
     <div className="App">
       <h2>IronContacts</h2>
+      <button onClick={RandomPeople}>RandomPeople</button>
       <table>
         <tr>
-          <th>
-            Picture
-          </th>
-          <th>
-            Name
-          </th>
-          <th>
-            Popularity
-          </th>
-          <th>
-            Aasdkfakshf
-          </th>
+          <th>Picture</th>
+          <th>Name</th>
+          <th>Popularity</th>
+          <th>Aasdkfakshf</th>
         </tr>
         <FiveCelebs />
       </table>
@@ -55,9 +48,13 @@ function App() {
       );
     });
   }
+  function RandomPeople() {
+    let random = Math.floor(Math.random() * restOfContacts.length);
+    let randomContact = restOfContacts[random];
+    let newRestOfContacts = [...restOfContacts];
+    let newContacts = [...firstFive];
+    newRestOfContacts.splice(random, 1);
+  }
 }
-
-
-
 
 export default App;
