@@ -51,9 +51,15 @@ function App() {
   function RandomPeople() {
     let random = Math.floor(Math.random() * restOfContacts.length);
     let randomContact = restOfContacts[random];
+
     let newRestOfContacts = [...restOfContacts];
     let newContacts = [...firstFive];
+
     newRestOfContacts.splice(random, 1);
+    newContacts.push(randomContact);
+
+    setFirstFive(newContacts);
+    setRestOfContacts(newRestOfContacts);
   }
 }
 
