@@ -42,9 +42,9 @@ function App() {
             <p>{eachFamousPerson.popularity.toFixed(2)}</p>
           </td>
           <td>
-            {/* <button id={eachFamousPerson.id} onClick={deleteRow}>
+            <p><button id={eachFamousPerson.id} onClick={deleteRow}>
               Delete
-            </button> */}
+            </button> </p>
           </td>
         </tr>
       );
@@ -73,6 +73,11 @@ function App() {
   function sortPopularity() {
     let newContacts = [...firstFive].sort((a, b) => b.popularity - a.popularity);
     setFirstFive(newContacts)
+  }
+
+  function deleteRow(e) {
+    let deleteContacts = [...firstFive].filter((c) => c.id !== e.target.id);
+    setFirstFive(deleteContacts)
   }
 }
 
